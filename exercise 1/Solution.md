@@ -73,6 +73,7 @@ vlan 20
 vlan 30
  name ADMIN
 exit
+write memory
 ```
 
 ## Attribution des ports aux VLANs
@@ -108,6 +109,7 @@ interface GigabitEthernet0/8
  switchport access vlan 30
  spanning-tree portfast
 exit
+write memory
 ```
 
 
