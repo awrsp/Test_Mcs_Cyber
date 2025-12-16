@@ -25,4 +25,18 @@ vlan 30
  name ADMIN
 exit
 ```
+
 mais probleme il est generalement demmande de ne pas utiliser le vlan 1 
+Cisco FR– Bonnes pratiques VLAN et sécurité (FR)
+
+​
+https://www.cisco.com/c/fr_ca/support/docs/smb/routers/cisco-rv-series-small-business-routers/1778-tz-VLAN-Best-Practices-and-Security-Tips.html
+
+Article FR « Ne laissez pas votre VLAN 1 être un risque »
+
+​
+https://networkpulse.fr/ne-laissez-pas-votre-vlan-1-etre-un-risque-guide-de-securisation-rapide/
+
+Vidéo FR « Pourquoi faut éviter d’utiliser Vlan 1 »
+​
+https://www.youtube.com/watch?v=vFOg2uaDnuc
