@@ -29,7 +29,7 @@ Les switchs ont reçu 8 modules PT-SWITCH-NM1CGE pour normaliser les ports. Nous
 premierement ils nous est demmande de creer 4 vlan 
 
 ```
-vlan 1
+~~vlan 1
  name VOIP
 vlan 10
  name WIFI
@@ -37,7 +37,7 @@ vlan 20
  name PC
 vlan 30
  name ADMIN
-exit
+exit~~
 ```
 
 mais probleme il est generalement demmande de ne pas utiliser le vlan 1 
@@ -48,8 +48,3 @@ mais probleme il est generalement demmande de ne pas utiliser le vlan 1
 
 `Netseccloud EN`– [What is VLAN 1 and How Does It Work?](https://netseccloud.com/what-is-vlan-1-and-how-does-it-work)
 
-
-Vidéo FR « Pourquoi faut éviter d’utiliser Vlan 1 »
-​
-
-https://www.youtube.com/watch?v=vFOg2uaDnuc
