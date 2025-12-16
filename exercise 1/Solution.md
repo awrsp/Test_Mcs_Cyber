@@ -75,6 +75,7 @@ vlan 30
 exit
 exit
 write memory
+exit
 ```
 
 ## Attribution des ports aux VLANs
