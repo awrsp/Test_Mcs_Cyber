@@ -72,12 +72,12 @@ vlan 30
 exit
 ```
 
+
+
+```
 enable
 configure terminal
 
-! Configuration des ports du switch
-
-```
 ! Ports 2-3 : VLAN 2 (VoIP)
 interface range GigabitEthernet0/2 - 3
  switchport mode access
