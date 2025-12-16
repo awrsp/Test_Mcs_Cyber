@@ -1,4 +1,4 @@
-## Hardware
+# Hardware
 
 
 Premièrement, la mise en place du matériel physique dans la salle.
@@ -25,7 +25,9 @@ Les switchs ont reçu 8 modules PT-SWITCH-NM1CGE pour normaliser les ports. Nous
 
 
 
-## Software
+# Software
+##  Configuration des VLAN sur les switchs
+
 ~~premierement ils nous est demmande de creer 4 vlan~~
 
 
@@ -56,6 +58,7 @@ mais probleme il est generalement demmande de ne pas utiliser le vlan 1
 `Netseccloud EN`– [What is VLAN 1 and How Does It Work?](https://netseccloud.com/what-is-vlan-1-and-how-does-it-work)
 
 donc je prefere creer le vlan 2 pour le voip et laisser le vlan1 etre le vlan natif Et on va essayer de ne pas l'utiliser.
+
 ```
 enable
 configure terminal
@@ -72,7 +75,7 @@ vlan 30
 exit
 ```
 
-
+## Attribution des ports aux VLANs
 
 ```
 enable
