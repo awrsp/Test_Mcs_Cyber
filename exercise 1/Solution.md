@@ -41,10 +41,9 @@ exit
 ```
 
 mais probleme il est generalement demmande de ne pas utiliser le vlan 1 
-Cisco FR– Bonnes pratiques VLAN et sécurité (FR)
 
-​
-https://www.cisco.com/c/fr_ca/support/docs/smb/routers/cisco-rv-series-small-business-routers/1778-tz-VLAN-Best-Practices-and-Security-Tips.html
+
+`Cisco FR`– [Bonnes pratiques VLAN et sécurité (FR)](https://www.cisco.com/c/fr_ca/support/docs/smb/routers/cisco-rv-series-small-business-routers/1778-tz-VLAN-Best-Practices-and-Security-Tips.html)
 
 Article FR « Ne laissez pas votre VLAN 1 être un risque »
 
