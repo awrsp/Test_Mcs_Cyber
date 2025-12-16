@@ -9,7 +9,7 @@ Lien vers l'énoncé / la plateforme : [lien](https://docs.google.com/document/d
 **Structure**
 - `exercise-1/` : Exercice 1 — MiniLab [Packet-tracer](https://fr.wikipedia.org/wiki/Packet_Tracer)
 - `exercise-2/` : Exercice 2 — Windows Server [Active Directory](https://fr.wikipedia.org/wiki/Active_Directory)
-- `exercise-3/` : Exercice 3 — Conteneurisation [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel)).
+- `exercise-3/` : Exercice 3 — Conteneurisation [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel))
 - `scripts/` : scripts et outils utilisés pour les exercices.
 - `docs/` : notes et explications complémentaires.
 
