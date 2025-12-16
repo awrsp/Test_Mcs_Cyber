@@ -7,7 +7,7 @@ Lien vers l'énoncé / la plateforme : [lien](https://docs.google.com/document/d
 **Structure**
 
 **Structure**
-- `exercise-1/` : Exercice 1 — MiniLab [Packet Tracer] (https://docs.google.com/document/d/1_vuIlc8FWEXX-hMt6ac0QLY3wzOLnxsBw205zwv9lGk/edit?tab=t.0). 
+- `exercise-1/` : Exercice 1 — MiniLab [Packet-tracer](https://www.netacad.com/fr/learning-collections/cisco-packet-tracer?courseLang=en-US)
 - `exercise-2/` : Exercice 2 — Windows Server (Active Directory
 ).
 - `exercise-3/` : Exercice 3 — Conteneurisation (Docker).
