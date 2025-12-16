@@ -108,7 +108,14 @@ interface GigabitEthernet0/8
  switchport access vlan 30
  spanning-tree portfast
 exit
+```
 
+
+## Configuration des trunks sur les switchs
+
+```
+enable
+configure terminal
 ! Ports 1 and 9 : trunks (uplinks)
 interface range GigabitEthernet0/1 , GigabitEthernet0/9
  switchport mode trunk
