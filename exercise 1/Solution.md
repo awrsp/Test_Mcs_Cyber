@@ -45,10 +45,9 @@ mais probleme il est generalement demmande de ne pas utiliser le vlan 1
 
 `Networkpulse FR`– [Ne laissez pas votre VLAN 1 être un risque : guide de sécurisation rapide](https://networkpulse.fr/ne-laissez-pas-votre-vlan-1-etre-un-risque-guide-de-securisation-rapide/)
 
-Article FR « Ne laissez pas votre VLAN 1 être un risque »
 
-​
-https://networkpulse.fr/ne-laissez-pas-votre-vlan-1-etre-un-risque-guide-de-securisation-rapide/
+`Netseccloud EN`– [What is VLAN 1 and How Does It Work?](https://netseccloud.com/what-is-vlan-1-and-how-does-it-work)
+
 
 Vidéo FR « Pourquoi faut éviter d’utiliser Vlan 1 »
 ​
