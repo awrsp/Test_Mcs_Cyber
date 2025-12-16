@@ -5,3 +5,4 @@ J'ai ajouté le module HWIC-4EW pour rendre possible le branchement en RJ au swi
 Un patch panel a été ajouté pour faciliter le branchement.
 3 salles ont été choisies comme bureau, puis les équipements ont été placés.
 Les switchs ont reçu 8 modules PT-SWITCH-NM1CGE pour normaliser les ports. Nous n'avons pas pu mettre de ports fibres sur les switchs pour les reconnecter au routeur car le routeur n'est pas compatible avec 4 ports fibre; il n'a que disponible un module RJ45 a 4 ports.
+
