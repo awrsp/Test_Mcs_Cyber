@@ -43,7 +43,7 @@ exit
 mais probleme il est generalement demmande de ne pas utiliser le vlan 1 
 
 
-`Cisco FR`– [Bonnes pratiques VLAN et sécurité (FR)](https://www.cisco.com/c/fr_ca/support/docs/smb/routers/cisco-rv-series-small-business-routers/1778-tz-VLAN-Best-Practices-and-Security-Tips.html)
+`Networkpulse FR`– [Ne laissez pas votre VLAN 1 être un risque : guide de sécurisation rapide](https://networkpulse.fr/ne-laissez-pas-votre-vlan-1-etre-un-risque-guide-de-securisation-rapide/)
 
 Article FR « Ne laissez pas votre VLAN 1 être un risque »
 
