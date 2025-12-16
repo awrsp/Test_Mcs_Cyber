@@ -5,12 +5,19 @@ Ce dépôt contient les réponses et les travaux réalisés pour le test **MCS C
 Lien vers l'énoncé / la plateforme : [lien](https://docs.google.com/document/d/1_vuIlc8FWEXX-hMt6ac0QLY3wzOLnxsBw205zwv9lGk/edit?tab=t.0)
 
 **Structure**
-- `exercises/` : exercices et corrections (si présents)
-- `scripts/` : scripts et outils utilisés
-- `docs/` : notes et explications complémentaires
+
+**Structure**
+- `exercise-1/` : Exercice 1 — énoncé et solution (réseau / reconnaissance).
+- `exercise-2/` : Exercice 2 — énoncé et solution (analyse / exploitation).
+- `exercise-3/` : Exercice 3 — énoncé et solution (remédiation / rapport).
+- `scripts/` : scripts et outils utilisés pour les exercices.
+- `docs/` : notes et explications complémentaires.
+
+
 
 **Usage rapide**
-- Parcourez les dossiers listés ci‑dessus pour trouver les solutions.
+- Consultez d'abord les dossiers `exercise-1/`, `exercise-2/` et `exercise-3/` pour trouver les énoncés et les solutions associées.
+- Lisez les README locaux pour les instructions spécifiques à chaque exercice.
 - Lisez les README locaux pour les instructions spécifiques à chaque exercice.
 
 
