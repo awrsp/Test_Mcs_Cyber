@@ -2,7 +2,7 @@
 
 Ce dépôt contient les réponses et les travaux réalisés pour le test **MCS Cyber** de l'école La Plateforme.
 
-Lien vers l'énoncé / la plateforme : [À insérer](https://docs.google.com/document/d/1_vuIlc8FWEXX-hMt6ac0QLY3wzOLnxsBw205zwv9lGk/edit?tab=t.0)
+Lien vers l'énoncé / la plateforme : [lien](https://docs.google.com/document/d/1_vuIlc8FWEXX-hMt6ac0QLY3wzOLnxsBw205zwv9lGk/edit?tab=t.0)
 
 **Structure**
 - `exercises/` : exercices et corrections (si présents)
