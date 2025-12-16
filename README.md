@@ -16,7 +16,6 @@ Lien vers l'énoncé / google sheets : [lien](https://docs.google.com/document/d
 
 **Usage rapide**
 - Consultez d'abord les dossiers `exercise-1/`, `exercise-2/` et `exercise-3/` pour trouver les énoncés et les solutions associées.
-- Lisez les README locaux pour les instructions spécifiques à chaque exercice.
 
 
 
