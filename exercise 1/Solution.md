@@ -1,4 +1,4 @@
-Hardware
+## Hardware
 
 
 Premièrement, la mise en place du matériel physique dans la salle.
@@ -25,7 +25,7 @@ Les switchs ont reçu 8 modules PT-SWITCH-NM1CGE pour normaliser les ports. Nous
 
 
 
-Software
+## Software
 premierement ils nous est demmande de creer 4 vlan 
 
 ```
