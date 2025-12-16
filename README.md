@@ -7,9 +7,10 @@ Lien vers l'énoncé / la plateforme : [lien](https://docs.google.com/document/d
 **Structure**
 
 **Structure**
-- `exercise-1/` : Exercice 1 — énoncé et solution (réseau / reconnaissance).
-- `exercise-2/` : Exercice 2 — énoncé et solution (analyse / exploitation).
-- `exercise-3/` : Exercice 3 — énoncé et solution (remédiation / rapport).
+- `exercise-1/` : Exercice 1 — MiniLab (Packet Tracer).
+- `exercise-2/` : Exercice 2 — Windows Server (Active Directory
+).
+- `exercise-3/` : Exercice 3 — Conteneurisation (Docker).
 - `scripts/` : scripts et outils utilisés pour les exercices.
 - `docs/` : notes et explications complémentaires.
 
