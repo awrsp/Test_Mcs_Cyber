@@ -26,29 +26,24 @@ Les switchs ont reçu 8 modules PT-SWITCH-NM1CGE pour normaliser les ports. Nous
 
 
 ## Software
-premierement ils nous est demmande de creer 4 vlan 
+~~premierement ils nous est demmande de creer 4 vlan~~
 
 
 ```
 enable
-
 configure terminal
-```
 
-
-~~`vlan 1`~~
-
-
- ~~`name voip`~~
-
-```
+! Création des VLAN
+vlan 1
+ name VOIP
 vlan 10
  name WIFI
 vlan 20
  name PC
 vlan 30
  name ADMIN
-exit~~
+exit
+
 ```
 
 
