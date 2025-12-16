@@ -30,7 +30,7 @@ premierement ils nous est demmande de creer 4 vlan
 
 ```
 ~~vlan 1~~
- name VOIP
+~~name voip~~   
 vlan 10
  name WIFI
 vlan 20
