@@ -39,4 +39,5 @@ https://networkpulse.fr/ne-laissez-pas-votre-vlan-1-etre-un-risque-guide-de-secu
 
 Vidéo FR « Pourquoi faut éviter d’utiliser Vlan 1 »
 ​
+
 https://www.youtube.com/watch?v=vFOg2uaDnuc
