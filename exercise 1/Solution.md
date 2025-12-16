@@ -128,3 +128,4 @@ end
 write memory
 
 ```
+Répéter la même configuration sur les autres switchs en adaptant le hostname.
