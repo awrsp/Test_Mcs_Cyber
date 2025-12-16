@@ -1,34 +1,33 @@
-# Hardware
+# Matériel
+
+Premièrement, mise en place du matériel physique dans la salle.
 
 
-Premièrement, la mise en place du matériel physique dans la salle.
-
-
-Ils ont été mis en place dans chaque bureau comme nous l'a demandé l'énoncé.
+Ils ont été installés dans chaque bureau, comme l'exige l'énoncé.
 
 
 Le routeur a été placé dans la salle réseau pour faciliter le câblage.
 
 
-J'ai ajouté le module HWIC-4EW pour rendre possible le branchement en RJ au switch dans chaque salle.
+J'ai ajouté le module HWIC-4EW pour permettre le branchement RJ45 aux commutateurs dans chaque salle.
 
 
-Un patch panel dans la salle reseau et des copper wall mount ont été ajouté pour faciliter les branchements.
+Un patch panel dans la salle réseau et des prises murales en cuivre ont été ajoutés pour faciliter les branchements.
 
 
-3 salles ont été choisies comme bureau, puis les équipements ont été placés.
+Trois salles ont été choisies comme bureaux, puis les équipements ont été installés.
 
 
-Les switchs ont reçu 8 modules PT-SWITCH-NM1CGE pour normaliser les ports. Nous n'avons pas pu mettre de ports fibres sur les switchs pour les reconnecter au routeur car le routeur n'est pas compatible avec 4 ports fibre; il n'a que disponible un module RJ45 a 4 ports.
+Les commutateurs ont reçu 8 modules PT-SWITCH-NM1CGE pour normaliser les ports. Nous n'avons pas pu ajouter de ports fibre sur les commutateurs pour les reconnecter au routeur, car le routeur n'est pas compatible avec 4 ports fibre ; il dispose seulement d'un module RJ45 4 ports.
 
 
 
 
 
-# Software
-##  Configuration des VLAN sur les switchs
+# Logiciel
+## Configuration des VLAN sur les commutateurs
 
-~~premierement ils nous est demmande de creer 4 vlan~~
+~~Premièrement, il nous est demandé de créer 4 VLAN.~~
 
 
 ```
@@ -49,15 +48,15 @@ exit
 ```
 
 
-mais probleme il est generalement demmande de ne pas utiliser le vlan 1 
+Cependant, il est généralement recommandé de ne pas utiliser le VLAN 1. 
 
 
-`Networkpulse FR`– [Ne laissez pas votre VLAN 1 être un risque : guide de sécurisation rapide](https://networkpulse.fr/ne-laissez-pas-votre-vlan-1-etre-un-risque-guide-de-securisation-rapide/)
+- Networkpulse FR — [Ne laissez pas votre VLAN 1 être un risque : guide de sécurisation rapide](https://networkpulse.fr/ne-laissez-pas-votre-vlan-1-etre-un-risque-guide-de-securisation-rapide/)
 
 
-`Netseccloud EN`– [What is VLAN 1 and How Does It Work?](https://netseccloud.com/what-is-vlan-1-and-how-does-it-work)
+- Netseccloud EN — [What is VLAN 1 and How Does It Work?](https://netseccloud.com/what-is-vlan-1-and-how-does-it-work)
 
-donc je prefere creer le vlan 2 pour le voip et laisser le vlan1 etre le vlan natif Et on va essayer de ne pas l'utiliser.
+Donc, je préfère créer le VLAN 2 pour la VoIP et laisser le VLAN 1 comme VLAN natif ; on essaiera de ne pas l'utiliser.
 
 ```
 enable
@@ -78,7 +77,7 @@ write memory
 exit
 ```
 
-## Attribution des ports aux VLANs
+## Attribution des ports aux VLAN
 
 ```
 enable
