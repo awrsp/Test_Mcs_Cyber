@@ -12,13 +12,13 @@ Le routeur a été placé dans la salle réseau pour faciliter le câblage.
 J'ai ajouté le module HWIC-4EW pour permettre le branchement RJ45 aux commutateurs dans chaque salle.
 
 
-Un patch panel dans la salle réseau et des prises murales en cuivre ont été ajoutés pour faciliter les branchements.
+Un panneau de brassage dans la salle réseau et des prises murales en cuivre ont été ajoutés pour faciliter les branchements.
 
 
 Trois salles ont été choisies comme bureaux, puis les équipements ont été installés.
 
 
-Les commutateurs ont reçu 8 modules PT-SWITCH-NM1CGE pour normaliser les ports. Nous n'avons pas pu ajouter de ports fibre sur les commutateurs pour les reconnecter au routeur, car le routeur n'est pas compatible avec 4 ports fibre ; il dispose seulement d'un module RJ45 4 ports.
+Les commutateurs ont reçu 8 modules PT-SWITCH-NM1CGE pour normaliser les ports. Nous n'avons pas pu ajouter de ports fibre optique sur les commutateurs pour les reconnecter au routeur, car le routeur n'est pas compatible avec 4 ports fibre optique ; il dispose seulement d'un module RJ45 4 ports.
 
 
 
@@ -114,12 +114,12 @@ write memory
 ```
 
 
-## Configuration des trunks sur les switchs
+## Configuration des trunks sur les commutateurs
 
 ```
 enable
 configure terminal
-! Ports 1 and 9 : trunks (uplinks)
+! Ports 1 et 9 : trunks (uplinks)
 interface range GigabitEthernet0/1 , GigabitEthernet0/9
  switchport mode trunk
  switchport trunk encapsulation dot1q
@@ -131,4 +131,4 @@ end
 write memory
 
 ```
-Répéter la même configuration sur les autres switchs en adaptant le hostname.
+Répétez la même configuration sur les autres commutateurs en adaptant le `hostname`.
