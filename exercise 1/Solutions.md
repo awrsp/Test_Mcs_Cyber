@@ -25,3 +25,4 @@ vlan 30
  name ADMIN
 exit
 ```
+mais probleme il est generalement demmande de ne pas utiliser le vlan 1 
