@@ -73,6 +73,7 @@ vlan 20
 vlan 30
  name ADMIN
 exit
+exit
 write memory
 ```
 
