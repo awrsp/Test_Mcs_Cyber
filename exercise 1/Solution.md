@@ -80,7 +80,7 @@ exit
 ## Attribution des ports aux VLAN
 
 
-# Ports 2-3 : VLAN 2 (VoIP)
+### Ports 2-3 : VLAN 2 (VoIP)
 
 ```
 enable
@@ -94,7 +94,7 @@ exit
 ```
 
 
-# Ports 4-5 : VLAN 10 (Wi-Fi)
+### Ports 4-5 : VLAN 10 (Wi-Fi)
 ```
 enable
 configure terminal
@@ -107,7 +107,7 @@ exit
 ```
 
 
-# Ports 6-7 : VLAN 20 (PC)
+### Ports 6-7 : VLAN 20 (PC)
 ```
 enable
 configure terminal
@@ -120,7 +120,7 @@ exit
 ```
 
 
-# Port 8 : VLAN 30 (Administration)
+### Port 8 : VLAN 30 (Administration)
 ```
 enable
 configure terminal
@@ -131,7 +131,7 @@ interface GigabitEthernet7/1
 exit
 exit
 ```
-# Fermeture des ports inutilisés
+### Fermeture des ports inutilisés
 il est de [bonne pratique](https://learn.pivitglobal.com/securing-unused-ports) de desactiver les port inutilisee et ou de rediriger le trafic vers un vlan vide  
 
 ```
@@ -140,14 +140,15 @@ configure terminal
 interface GigabitEthernet9/1
 shutdown
 exit
+exit
 ```
 
 ## Configuration des trunks sur les commutateurs
-# Ports 1 et 9 : trunks (uplinks)
+### Ports 1 et 9 : trunks (uplinks)
 ```
 enable
 configure terminal
-interface range GigabitEthernet0/1 , GigabitEthernet0/9
+interface range GigabitEthernet0/1 , GigabitEthernet8/1
  switchport mode trunk
  switchport trunk encapsulation dot1q
  switchport trunk allowed vlan 2,10,20,30
@@ -159,5 +160,7 @@ write memory
 
 ```
 Répétez la même configuration sur les autres commutateurs en adaptant le `hostname`.
+
+# Configuration du routeur
 
 
