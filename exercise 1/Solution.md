@@ -162,33 +162,43 @@ write memory
 Répétez la même configuration sur les autres commutateurs en adaptant le `hostname`.
 
 # Configuration du routeur
-no
-conf t
 
-hostname R1
-
-! VLAN 1 - VoIP
-ip dhcp pool VLAN1-VOIP
- network 192.168.0.0 255.255.255.0
- default-router 192.168.0.1
-dns-server 8.8.8.8
-
-! VLAN 10 - PC fixes
-ip dhcp pool VLAN10-PC
- network 192.168.10.0 255.255.255.0
- default-router 192.168.10.1
-dns-server 8.8.8.8
-
-! VLAN 20 - Wi-Fi
-ip dhcp pool VLAN20-WIFI
- network 192.168.20.0 255.255.255.0
- default-router 192.168.20.1
-dns-server 8.8.8.8
-
-! VLAN 30 - Admin
-ip dhcp pool VLAN30-ADMIN
- network 192.168.30.0 255.255.255.0
- default-router 192.168.30.1
+## Configuration des sous-interfaces pour les VLAN
+### Fermeture des ports inutilisés
+```
+enable 
+configure terminal
+interface range FastEthernet0/0/0 - 2 , FastEthernet0/0/3
+shutdown
 exit
+```
+
+
+### defintion des vlan sur le routeur
+```
+! Création des VLAN
+vlan 2
+ name VOIP
+vlan 10
+ name WIFI
+vlan 20
+ name PC
+vlan 30
+ name ADMIN
+exit
+exit
+write memory
+exit
+```
+
+
+
+
+enable
+configure terminal
+interface FastEthernet0/0/0 , FastEthernet0/0/1 , FastEthernet0/0/2 , FastEthernet0/0/3 , GigabitEthernet0/0 , GigabitEthernet0/1 the gigabits ports need to be disabled 000 001 and 002 are downlinks to switches
+004 needs to be disabled
+
+GigabitEthernet0/1/0 is the fiber uplink port
 
 
