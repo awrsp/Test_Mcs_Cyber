@@ -78,6 +78,8 @@ exit
 ```
 
 ## Attribution des ports aux VLAN
+
+
 # Ports 2-3 : VLAN 2 (VoIP)
 
 ```
