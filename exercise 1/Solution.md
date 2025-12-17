@@ -132,7 +132,7 @@ exit
 exit
 ```
 # Fermeture des ports inutilisés
-il est [bonne pratique](https://learn.pivitglobal.com/securing-unused-ports)  de desactiver les port inutilisee et ou de rediriger le trafic vers un vlan vide  
+il est de [bonne pratique](https://learn.pivitglobal.com/securing-unused-ports) de desactiver les port inutilisee et ou de rediriger le trafic vers un vlan vide  
 
 ```
 enable
