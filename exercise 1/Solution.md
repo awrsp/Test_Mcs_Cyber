@@ -61,8 +61,6 @@ Donc, je préfère créer le VLAN 2 pour la VoIP et laisser le VLAN 1 comme VLAN
 ```
 enable
 configure terminal
-
-! Création des VLAN
 vlan 2
  name VOIP
 vlan 10
@@ -174,9 +172,10 @@ exit
 ```
 
 
-### defintion des vlan sur le routeur
+## Configuration des VLAN sur le routeur
 ```
-! Création des VLAN
+enable
+configure terminal
 vlan 2
  name VOIP
 vlan 10
