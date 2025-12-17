@@ -93,6 +93,8 @@ exit
 
 # Ports 4-5 : VLAN 10 (Wi-Fi)
 ```
+enable
+configure terminal
 interface range GigabitEthernet3/1 , GigabitEthernet4/1
  switchport mode access
  switchport access vlan 10
@@ -103,6 +105,8 @@ exit
 
 # Ports 6-7 : VLAN 20 (PC)
 ```
+enable
+configure terminal
 interface range GigabitEthernet5/1 , GigabitEthernet6/1
  switchport mode access
  switchport access vlan 20
@@ -113,13 +117,13 @@ exit
 
 # Port 8 : VLAN 30 (Administration)
 ```
+enable
+configure terminal
 interface GigabitEthernet7/1
  switchport mode access
  switchport access vlan 30
  spanning-tree portfast
 exit
-exit
-write memory
 ```
 
 
