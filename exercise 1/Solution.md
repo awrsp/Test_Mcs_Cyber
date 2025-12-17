@@ -90,6 +90,7 @@ interface range GigabitEthernet1/1 , GigabitEthernet2/1
  switchport access vlan 2
  spanning-tree portfast
 exit
+exit
 ```
 
 
@@ -101,6 +102,7 @@ interface range GigabitEthernet3/1 , GigabitEthernet4/1
  switchport mode access
  switchport access vlan 10
  spanning-tree portfast
+exit
 exit
 ```
 
@@ -114,6 +116,7 @@ interface range GigabitEthernet5/1 , GigabitEthernet6/1
  switchport access vlan 20
  spanning-tree portfast
 exit
+exit
 ```
 
 
@@ -125,6 +128,7 @@ interface GigabitEthernet7/1
  switchport mode access
  switchport access vlan 30
  spanning-tree portfast
+exit
 exit
 ```
 
