@@ -172,56 +172,21 @@ exit
 ```
 
 
-## Configuration des VLAN sur le routeur
-```
-enable
-configure terminal
-vlan 2 name VOIP
-vlan 10 name WIFI
-vlan 20 name PC
-vlan 30 name ADMIN
-exit
-exit
-write memory
-exit
-```
 
 ### Configuration des sous-interfaces pour les VLAN par trunk
 ```
 enable
-configure terminal
-
-
-
-enable
-configure terminal
-interface FastEthernet0/0/0 , FastEthernet0/0/1 , FastEthernet0/0/2 , FastEthernet0/0/3 , GigabitEthernet0/0 , GigabitEthernet0/1 the gigabits ports need to be disabled 000 001 and 002 are downlinks to switches
-004 needs to be disabled
-
-GigabitEthernet0/1/0 is the fiber uplink port
-
-
-Use one router interface as a trunk (router‑on‑a‑stick) and one trunk uplink on each switch; the router will have one subinterface per VLAN with DHCP on each subnet.
-
-​
-1. Router 1941 – trunk + subinterfaces
-
-Assume the trunk to Switch 1 is on GigabitEthernet0/0. Adjust the interface name if needed.
-
-​
-
-text
-conf t
+conf terminal
 !
 ! Physical trunk interface
 interface GigabitEthernet0/0
  description Trunk vers SW1
  no shutdown
 !
-! VLAN 1 - VoIP 192.168.0.0/24 GW 192.168.0.1
+! VLAN 2 - VoIP 192.168.2.0/24 GW 192.168.2.1
 interface GigabitEthernet0/0.1
- encapsulation dot1q 1
- ip address 192.168.0.1 255.255.255.0
+ encapsulation dot1q 2
+ ip address 192.168.2.1 255.255.255.0
  no shutdown
 !
 ! VLAN 10 - PC fixes 192.168.10.0/24
@@ -252,15 +217,15 @@ Keep the DHCP ranges .10–.50 by excluding .1–.9.
 text
 conf t
 ! Excluded addresses
-ip dhcp excluded-address 192.168.0.1 192.168.0.9
-ip dhcp excluded-address 192.168.10.1 192.168.10.9
-ip dhcp excluded-address 192.168.20.1 192.168.20.9
-ip dhcp excluded-address 192.168.30.1 192.168.30.9
+ip dhcp included-address 192.168.2.10 192.168.0.50
+ip dhcp included-address 192.168.10.10 192.168.10.50
+ip dhcp included-address 192.168.20.10 192.168.20.50
+ip dhcp included-address 192.168.30.10 192.168.30.50
 !
-! VLAN 1 - VoIP
-ip dhcp pool VLAN1-VOIP
+! VLAN 2 - VoIP
+ip dhcp pool VLAN2-VOIP
  network 192.168.0.0 255.255.255.0
- default-router 192.168.0.1
+ default-router 192.168.2.1
 ! dns-server 8.8.8.8      ! optional
 !
 ! VLAN 10 - PC fixes
