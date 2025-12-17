@@ -176,20 +176,20 @@ exit
 ```
 enable
 configure terminal
-vlan 2
- name VOIP
-vlan 10
- name WIFI
-vlan 20
- name PC
-vlan 30
- name ADMIN
+vlan 2 name VOIP
+vlan 10 name WIFI
+vlan 20 name PC
+vlan 30 name ADMIN
 exit
 exit
 write memory
 exit
 ```
 
+### Configuration des sous-interfaces pour les VLAN par trunk
+```
+enable
+configure terminal
 
 
 
@@ -201,3 +201,113 @@ interface FastEthernet0/0/0 , FastEthernet0/0/1 , FastEthernet0/0/2 , FastEthern
 GigabitEthernet0/1/0 is the fiber uplink port
 
 
+Use one router interface as a trunk (router‑on‑a‑stick) and one trunk uplink on each switch; the router will have one subinterface per VLAN with DHCP on each subnet.
+
+​
+1. Router 1941 – trunk + subinterfaces
+
+Assume the trunk to Switch 1 is on GigabitEthernet0/0. Adjust the interface name if needed.
+
+​
+
+text
+conf t
+!
+! Physical trunk interface
+interface GigabitEthernet0/0
+ description Trunk vers SW1
+ no shutdown
+!
+! VLAN 1 - VoIP 192.168.0.0/24 GW 192.168.0.1
+interface GigabitEthernet0/0.1
+ encapsulation dot1q 1
+ ip address 192.168.0.1 255.255.255.0
+ no shutdown
+!
+! VLAN 10 - PC fixes 192.168.10.0/24
+interface GigabitEthernet0/0.10
+ encapsulation dot1q 10
+ ip address 192.168.10.1 255.255.255.0
+ no shutdown
+!
+! VLAN 20 - Wi-Fi 192.168.20.0/24
+interface GigabitEthernet0/0.20
+ encapsulation dot1q 20
+ ip address 192.168.20.1 255.255.255.0
+ no shutdown
+!
+! VLAN 30 - Administration 192.168.30.0/24
+interface GigabitEthernet0/0.30
+ encapsulation dot1q 30
+ ip address 192.168.30.1 255.255.255.0
+ no shutdown
+end
+
+2. Router 1941 – DHCP for each VLAN
+
+Keep the DHCP ranges .10–.50 by excluding .1–.9.
+
+​
+
+text
+conf t
+! Excluded addresses
+ip dhcp excluded-address 192.168.0.1 192.168.0.9
+ip dhcp excluded-address 192.168.10.1 192.168.10.9
+ip dhcp excluded-address 192.168.20.1 192.168.20.9
+ip dhcp excluded-address 192.168.30.1 192.168.30.9
+!
+! VLAN 1 - VoIP
+ip dhcp pool VLAN1-VOIP
+ network 192.168.0.0 255.255.255.0
+ default-router 192.168.0.1
+! dns-server 8.8.8.8      ! optional
+!
+! VLAN 10 - PC fixes
+ip dhcp pool VLAN10-PC
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+!
+! VLAN 20 - Wi-Fi
+ip dhcp pool VLAN20-WIFI
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+!
+! VLAN 30 - Admin
+ip dhcp pool VLAN30-ADMIN
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.1
+!
+end
+
+3. Switches – trunk to the router, access ports for VLANs
+
+On each switch, use one trunk uplink to the router and keep your VLANs already created. Example for the port toward the router (GigabitEthernet0/1):
+
+​
+
+text
+conf t
+! Uplink to router
+interface GigabitEthernet0/1
+ description Trunk vers routeur 1941
+ switchport mode trunk
+ switchport trunk allowed vlan 1,10,20,30
+ no shutdown
+!
+! Example access ports
+interface FastEthernet0/2
+ switchport mode access
+ switchport access vlan 10
+!
+interface FastEthernet0/3
+ switchport mode access
+ switchport access vlan 20
+!
+interface FastEthernet0/4
+ switchport mode access
+ switchport access vlan 30
+end
+
+Every switch that has a trunk to the router should have its uplink configured like this (same VLAN list), so all VLANs can reach the router and get DHCP via the subinterfaces.
+​
