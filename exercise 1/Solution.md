@@ -131,14 +131,22 @@ interface GigabitEthernet7/1
 exit
 exit
 ```
-
-
-## Configuration des trunks sur les commutateurs
+# Fermeture des ports inutilisés
+il est bonne pratique de desactiver les port inutilisee et ou rediriger vers un vlan vide  [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel))
 
 ```
 enable
 configure terminal
-! Ports 1 et 9 : trunks (uplinks)
+interface GigabitEthernet9/1
+shutdown
+exit
+```
+
+## Configuration des trunks sur les commutateurs
+# Ports 1 et 9 : trunks (uplinks)
+```
+enable
+configure terminal
 interface range GigabitEthernet0/1 , GigabitEthernet0/9
  switchport mode trunk
  switchport trunk encapsulation dot1q
@@ -151,3 +159,5 @@ write memory
 
 ```
 Répétez la même configuration sur les autres commutateurs en adaptant le `hostname`.
+
+
