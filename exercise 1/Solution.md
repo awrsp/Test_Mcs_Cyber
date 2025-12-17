@@ -84,7 +84,7 @@ enable
 configure terminal
 
 ! Ports 2-3 : VLAN 2 (VoIP)
-interface range GigabitEthernet0/2 - 3
+interface range GigabitEthernet1/1 - 2/1
  switchport mode access
  switchport access vlan 2
  spanning-tree portfast
