@@ -4,7 +4,6 @@ Ce dépôt contient les réponses et les travaux réalisés pour le test **MCS C
 
 Lien vers l'énoncé / google sheets : [lien](https://docs.google.com/document/d/1_vuIlc8FWEXX-hMt6ac0QLY3wzOLnxsBw205zwv9lGk/edit?tab=t.0)
 
-**Structure**
 
 **Structure**
 - `exercise-1/` : Exercice 1 — MiniLab [Packet-tracer](https://fr.wikipedia.org/wiki/Packet_Tracer)
