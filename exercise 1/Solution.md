@@ -185,10 +185,10 @@ ip dhcp pool VLAN20-WIFI
  default-router 192.168.20.1
 dns-server 8.8.8.8
 
-VLAN 30 - Admin
+! VLAN 30 - Admin
 ip dhcp pool VLAN30-ADMIN
  network 192.168.30.0 255.255.255.0
  default-router 192.168.30.1
-end
+exit
 
 
