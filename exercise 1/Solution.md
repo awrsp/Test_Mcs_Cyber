@@ -84,28 +84,28 @@ enable
 configure terminal
 
 ! Ports 2-3 : VLAN 2 (VoIP)
-interface range GigabitEthernet1/1 - 2/1
+interface range GigabitEthernet1/1 - GigabitEthernet2/1
  switchport mode access
  switchport access vlan 2
  spanning-tree portfast
 exit
 
 ! Ports 4-5 : VLAN 10 (Wi-Fi)
-interface range GigabitEthernet0/4 - 5
+interface range GigabitEthernet3/1 - GigabitEthernet4/1
  switchport mode access
  switchport access vlan 10
  spanning-tree portfast
 exit
 
 ! Ports 6-7 : VLAN 20 (PC)
-interface range GigabitEthernet0/6 - 7
+interface range GigabitEthernet5/1 - GigabitEthernet6/1
  switchport mode access
  switchport access vlan 20
  spanning-tree portfast
 exit
 
 ! Port 8 : VLAN 30 (Administration)
-interface GigabitEthernet0/8
+interface GigabitEthernet7/1
  switchport mode access
  switchport access vlan 30
  spanning-tree portfast
