@@ -123,7 +123,7 @@ configure terminal
 interface range GigabitEthernet0/1 , GigabitEthernet0/9
  switchport mode trunk
  switchport trunk encapsulation dot1q
- switchport trunk allowed vlan 1,10,20,30
+ switchport trunk allowed vlan 2,10,20,30
 exit
 
 hostname SW1
