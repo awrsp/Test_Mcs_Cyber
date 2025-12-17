@@ -132,7 +132,7 @@ exit
 exit
 ```
 # Fermeture des ports inutilisés
-il est bonne pratique de desactiver les port inutilisee et ou rediriger vers un vlan vide  [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel))
+il est [bonne](https://learn.pivitglobal.com/securing-unused-ports) pratique de desactiver les port inutilisee et ou de rediriger le trafic vers un vlan vide  
 
 ```
 enable
