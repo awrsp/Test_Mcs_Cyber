@@ -6,15 +6,15 @@ Lien vers l'énoncé / google sheets : [lien](https://docs.google.com/document/d
 
 
 **Structure**
-- `exercise-1/` : Exercice 1 — MiniLab [Packet-tracer](https://fr.wikipedia.org/wiki/Packet_Tracer)
-- `exercise-2/` : Exercice 2 — Windows Server [Active Directory](https://fr.wikipedia.org/wiki/Active_Directory)
-- `exercise-3/` : Exercice 3 — Conteneurisation [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel))
+- `exercice-1/` : Exercice 1 — MiniLab [Packet-tracer](https://fr.wikipedia.org/wiki/Packet_Tracer)
+- `exercice-2/` : Exercice 2 — Windows Server [Active Directory](https://fr.wikipedia.org/wiki/Active_Directory)
+- `exercice-3/` : Exercice 3 — Conteneurisation [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel))
 - `docs/` : notes et explications complémentaires.
 
 
 
 **Usage rapide**
-- Consultez d'abord les dossiers `exercise-1/`, `exercise-2/` et `exercise-3/` pour trouver les énoncés et les solutions associées.
+- Consultez d'abord les dossiers `exercice-1/`, `exercice-2/` et `exercice-3/` pour trouver les énoncés et les solutions associées.
 
 
 
