@@ -213,6 +213,8 @@ ip dhcp pool VLAN20
 ip dhcp pool VLAN30
  network 192.168.30.0 255.255.255.0
  default-router 192.168.30.1
+exit
+exit
 ```
 
 
@@ -235,6 +237,15 @@ ip dhcp excluded-address 192.168.30.1 192.168.30.9
 ip dhcp excluded-address 192.168.30.51 192.168.30.254
 exit
 ```
+
+
+
+
+
+
+
+
+
 
 
 | VLAN | Usage | Réseau | Plage DHCP |
