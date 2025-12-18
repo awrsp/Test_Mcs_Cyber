@@ -166,7 +166,7 @@ Répétez la même configuration sur les autres commutateurs en adaptant le `hos
 ```
 enable 
 configure terminal
-interface range FastEthernet0/0/0 - 2 , FastEthernet0/0/3
+interface range GigabitEthernet0/0 , GigabitEthernet0/1 , FastEthernet0/0/3
 shutdown
 exit
 ```
@@ -177,11 +177,26 @@ exit
 ```
 enable
 conf terminal
-!
-! Physical trunk interface
-interface GigabitEthernet0/0
- description Trunk vers SW1
+! Les 3 ports FastEthernet en trunk L2 vers les switches
+interface range FastEthernet0/0/0 , FastEthernet0/0/1 , FastEthernet0/0/2
+ switchport mode trunk
+ switchport trunk allowed vlan 2,10,20,30
  no shutdown
+
+| VLAN | Usage | Réseau | Plage DHCP |
+|---|---|---|---|
+| VLAN 2 | VoIP | 192.168.2.0/24 | 192.168.2.10 - 192.168.0.50 |
+| VLAN 10 | PC fixes | 192.168.10.0/24 | 192.168.10.10 - 192.168.10.50 |
+| VLAN 20 | Wi-Fi | 192.168.20.0/24 | 192.168.20.10 - 192.168.20.50 |
+| VLAN 30 | Administration | 192.168.30.0/24 | 192.168.30.10 - 192.168.30.50 |
+
+
+
+
+
+
+
+
 !
 ! VLAN 2 - VoIP 192.168.2.0/24 GW 192.168.2.1
 interface GigabitEthernet0/0.1
