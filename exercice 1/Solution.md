@@ -276,7 +276,7 @@ write memory
 
 # Branchement final et vérification
 
-Après avoir configuré tous les équipements (mise en place d antenne wifi sur les pc portables activation du dhcp sur les fixes mise en place d un module ip voip adapter sur le fix), nous pouvons procéder au câblage final et à la vérification de la connectivité.
+Après avoir configuré tous les équipements (mMise en place d'antennes WiFi sur les PC portables, activation du DHCP sur les PC fixes, mise en place d'un module IP VoIP adapter sur le PC fixe), nous pouvons procéder au câblage final et à la vérification de la connectivité.
 sur le routeur, nous pouvons vérifier les baux DHCP attribués avec la commande suivante :
 
 
