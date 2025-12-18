@@ -182,6 +182,45 @@ interface range FastEthernet0/0/0 , FastEthernet0/0/1 , FastEthernet0/0/2
  switchport mode trunk
  switchport trunk allowed vlan 2,10,20,30
  no shutdown
+exit
+```
+
+
+### Configuration du dhcp pour chaque vlan
+```
+conf terminal
+!
+! DHCP Pool for VLAN 2 (VoIP)
+ip dhcp pool VLAN2
+ network 192.168.2.0 255.255.255.0
+ default-router 192.168.2.1
+ dns-server 8.8.8.8
+ lease 7
+!
+! DHCP Pool for VLAN 10 (PC fixes)
+ip dhcp pool VLAN10
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+ lease 7
+!
+! DHCP Pool for VLAN 20 (Wi-Fi)
+ip dhcp pool VLAN20
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ dns-server 8.8.8.8
+ lease 7
+!
+! DHCP Pool for VLAN 30 (Administration)
+ip dhcp pool VLAN30
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.1
+ dns-server 8.8.8.8
+ lease 7
+
+
+
+
 
 | VLAN | Usage | Réseau | Plage DHCP |
 |---|---|---|---|
@@ -193,101 +232,3 @@ interface range FastEthernet0/0/0 , FastEthernet0/0/1 , FastEthernet0/0/2
 
 
 
-
-
-
-
-!
-! VLAN 2 - VoIP 192.168.2.0/24 GW 192.168.2.1
-interface GigabitEthernet0/0.1
- encapsulation dot1q 2
- ip address 192.168.2.1 255.255.255.0
- no shutdown
-!
-! VLAN 10 - PC fixes 192.168.10.0/24
-interface GigabitEthernet0/0.10
- encapsulation dot1q 10
- ip address 192.168.10.1 255.255.255.0
- no shutdown
-!
-! VLAN 20 - Wi-Fi 192.168.20.0/24
-interface GigabitEthernet0/0.20
- encapsulation dot1q 20
- ip address 192.168.20.1 255.255.255.0
- no shutdown
-!
-! VLAN 30 - Administration 192.168.30.0/24
-interface GigabitEthernet0/0.30
- encapsulation dot1q 30
- ip address 192.168.30.1 255.255.255.0
- no shutdown
-end
-
-2. Router 1941 – DHCP for each VLAN
-
-Keep the DHCP ranges .10–.50 by excluding .1–.9.
-
-​
-
-text
-conf t
-! Excluded addresses
-ip dhcp included-address 192.168.2.10 192.168.0.50
-ip dhcp included-address 192.168.10.10 192.168.10.50
-ip dhcp included-address 192.168.20.10 192.168.20.50
-ip dhcp included-address 192.168.30.10 192.168.30.50
-!
-! VLAN 2 - VoIP
-ip dhcp pool VLAN2-VOIP
- network 192.168.0.0 255.255.255.0
- default-router 192.168.2.1
-! dns-server 8.8.8.8      ! optional
-!
-! VLAN 10 - PC fixes
-ip dhcp pool VLAN10-PC
- network 192.168.10.0 255.255.255.0
- default-router 192.168.10.1
-!
-! VLAN 20 - Wi-Fi
-ip dhcp pool VLAN20-WIFI
- network 192.168.20.0 255.255.255.0
- default-router 192.168.20.1
-!
-! VLAN 30 - Admin
-ip dhcp pool VLAN30-ADMIN
- network 192.168.30.0 255.255.255.0
- default-router 192.168.30.1
-!
-end
-
-3. Switches – trunk to the router, access ports for VLANs
-
-On each switch, use one trunk uplink to the router and keep your VLANs already created. Example for the port toward the router (GigabitEthernet0/1):
-
-​
-
-text
-conf t
-! Uplink to router
-interface GigabitEthernet0/1
- description Trunk vers routeur 1941
- switchport mode trunk
- switchport trunk allowed vlan 1,10,20,30
- no shutdown
-!
-! Example access ports
-interface FastEthernet0/2
- switchport mode access
- switchport access vlan 10
-!
-interface FastEthernet0/3
- switchport mode access
- switchport access vlan 20
-!
-interface FastEthernet0/4
- switchport mode access
- switchport access vlan 30
-end
-
-Every switch that has a trunk to the router should have its uplink configured like this (same VLAN list), so all VLANs can reach the router and get DHCP via the subinterfaces.
-​
