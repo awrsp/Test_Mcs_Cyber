@@ -170,6 +170,7 @@ configure terminal
 interface range GigabitEthernet0/0 , GigabitEthernet0/1 , FastEthernet0/0/3
 shutdown
 exit
+exit
 ```
 
 
@@ -184,11 +185,13 @@ interface range FastEthernet0/0/0 , FastEthernet0/0/1 , FastEthernet0/0/2
  switchport trunk allowed vlan 2,10,20,30
  no shutdown
 exit
+exit
 ```
 
 
 ### Configuration du dhcp pour chaque vlan
 ```
+enable
 conf terminal
 !
 ! DHCP Pool for VLAN 2 (VoIP)
@@ -240,6 +243,34 @@ ip dhcp excluded-address 192.168.30.51 192.168.30.254
 exit
 ```
 
+### Configuration des interfaces VLAN sur le routeur
+```
+enable
+configure terminal
+! Interfaces VLAN pour chaque réseau (passerelles)
+interface vlan 2
+ ip address 192.168.2.1 255.255.255.0
+ description VLAN 2 VoIP
+ no shutdown
+!
+interface vlan 10
+ ip address 192.168.10.1 255.255.255.0
+ description VLAN 10 PC fixes
+ no shutdown
+!
+interface vlan 20
+ ip address 192.168.20.1 255.255.255.0
+ description VLAN 20 Wi-Fi
+ no shutdown
+!
+interface vlan 30
+ ip address 192.168.30.1 255.255.255.0
+ description VLAN 30 Administration
+ no shutdown
+exit
+exit
+write memory
+```
 
 
 
@@ -249,6 +280,8 @@ exit
 
 
 
+
+GigabitEthernet0/0
 
 
 
