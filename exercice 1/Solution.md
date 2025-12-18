@@ -220,6 +220,8 @@ exit
 
 ### Exclusion des adresses non désirées du pool DHCP
 ```
+enable
+configure terminal
 ! Exclusion des adresses non désirées du pool DHCP pour le VLAN 2
 ip dhcp excluded-address 192.168.2.1 192.168.2.9
 ip dhcp excluded-address 192.168.2.51 192.168.2.254
