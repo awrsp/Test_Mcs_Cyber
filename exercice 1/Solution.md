@@ -281,7 +281,6 @@ write memory
 
 
 
-GigabitEthernet0/0
 
 
 
