@@ -166,6 +166,7 @@ Répétez la même configuration sur les autres commutateurs en adaptant le `hos
 ```
 enable 
 configure terminal
+! Fermeture des ports inutilisés
 interface range GigabitEthernet0/0 , GigabitEthernet0/1 , FastEthernet0/0/3
 shutdown
 exit
@@ -195,31 +196,45 @@ ip dhcp pool VLAN2
  network 192.168.2.0 255.255.255.0
  default-router 192.168.2.1
  dns-server 8.8.8.8
- lease 7
 !
 ! DHCP Pool for VLAN 10 (PC fixes)
 ip dhcp pool VLAN10
  network 192.168.10.0 255.255.255.0
  default-router 192.168.10.1
  dns-server 8.8.8.8
- lease 7
 !
 ! DHCP Pool for VLAN 20 (Wi-Fi)
 ip dhcp pool VLAN20
  network 192.168.20.0 255.255.255.0
  default-router 192.168.20.1
  dns-server 8.8.8.8
- lease 7
 !
 ! DHCP Pool for VLAN 30 (Administration)
 ip dhcp pool VLAN30
  network 192.168.30.0 255.255.255.0
  default-router 192.168.30.1
- dns-server 8.8.8.8
- lease 7
+```
 
 
-
+### Exclusion des adresses non désirées du pool DHCP
+```
+! Exclusion des adresses non désirées du pool DHCP pour le VLAN 2
+ip dhcp excluded-address 192.168.2.1 192.168.2.9
+ip dhcp excluded-address 192.168.2.51 192.168.2.254
+!
+! Exclusion des adresses non désirées du pool DHCP pour le VLAN 10
+ip dhcp excluded-address 192.168.10.1 192.168.10.9
+ip dhcp excluded-address 192.168.10.51 192.168.10.254
+!
+! Exclusion des adresses non désirées du pool DHCP pour le VLAN 20
+ip dhcp excluded-address 192.168.20.1 192.168.20.9
+ip dhcp excluded-address 192.168.20.51 192.168.20.254
+!
+! Exclusion des adresses non désirées du pool DHCP pour le VLAN 30
+ip dhcp excluded-address 192.168.30.1 192.168.30.9
+ip dhcp excluded-address 192.168.30.51 192.168.30.254
+exit
+```
 
 
 | VLAN | Usage | Réseau | Plage DHCP |
