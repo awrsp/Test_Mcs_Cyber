@@ -274,23 +274,18 @@ write memory
 
 
 
+# Branchement final et vérification
+
+Après avoir configuré tous les équipements (mise en place d antenne wifi sur les pc portables activation du dhcp sur les fixes mise en place d un module ip voip adapter sur le fix), nous pouvons procéder au câblage final et à la vérification de la connectivité.
+sur le routeur, nous pouvons vérifier les baux DHCP attribués avec la commande suivante :
 
 
-
-
-
-
-
-
-
-
-
-| VLAN | Usage | Réseau | Plage DHCP |
-|---|---|---|---|
-| VLAN 2 | VoIP | 192.168.2.0/24 | 192.168.2.10 - 192.168.0.50 |
-| VLAN 10 | PC fixes | 192.168.10.0/24 | 192.168.10.10 - 192.168.10.50 |
-| VLAN 20 | Wi-Fi | 192.168.20.0/24 | 192.168.20.10 - 192.168.20.50 |
-| VLAN 30 | Administration | 192.168.30.0/24 | 192.168.30.10 - 192.168.30.50 |
+```
+enable
+show ip dhcp binding
+exit
+```
+tout fonctionne correctement.
 
 
 
