@@ -38,94 +38,86 @@ Mettre dans votre Github :
 
 # Configuration
 ```
-$Domain = "laplateforme.io"
-$OU = "OU=Utilisateurs,DC=laplateforme,DC=io"  # Adapter selon votre OU
+# Script PowerShell AD COMPLET - Crée OU + Utilisateurs + Groupes
+# Exécuter en Admin domaine | Import-Module ActiveDirectory
+
+# Configuration automatique
+$Domain = (Get-ADDomain).DNSRoot
+$BaseDN = (Get-ADDomain).DistinguishedName
+$OUPath = "OU=Utilisateurs,$BaseDN"
+
+Write-Host "Domaine détecté: $Domain" -ForegroundColor Green
+Write-Host "OU cible: $OUPath" -ForegroundColor Yellow
+
+# 1. Créer OU si manquante
+if (!(Get-ADOrganizationalUnit -Filter "DistinguishedName -eq '$OUPath'" -ErrorAction SilentlyContinue)) {
+    New-ADOrganizationalUnit -Name "Utilisateurs" -Path $BaseDN
+    Write-Host "✓ OU 'Utilisateurs' créée" -ForegroundColor Green
+} else {
+    Write-Host "✓ OU existe déjà" -ForegroundColor Green
+}
+
+# 2. Mot de passe commun
 $Password = ConvertTo-SecureString "Azerty_2025!" -AsPlainText -Force
-$UsersCSV = @"
-Username,Mail,Groups,Mot de passe,Changer au 1er login
-alexandre.marcelline@laplateforme.io,alexandre.marcelline@laplateforme.io,Animation,Azerty_2025!,Oui
-aragon.isabelle@laplateforme.io,aragon.isabelle@laplateforme.io,Animation,Azerty_2025!,Oui
-avaro.marina@laplateforme.io,avaro.marina@laplateforme.io,As|Médical,Azerty_2025!,Oui
-bernard.isabelle@laplateforme.io,bernard.isabelle@laplateforme.io,As|Médical,Azerty_2025!,Oui
-bouffier.stephane@laplateforme.io,bouffier.stephane@laplateforme.io,Hébergement|ASH,Azerty_2025!,Oui
-bouziane.fatiha@laplateforme.io,bouziane.fatiha@laplateforme.io,Cadres|Médical|cadre de santé,Azerty_2025!,Oui
-carlier.chantal@laplateforme.io,carlier.chantal@laplateforme.io,Comptable|Administratif,Azerty_2025!,Oui
-thillot.marc@laplateforme.io,thillot.marc@laplateforme.io,Cadres|Directeur|Animation|Hébergement|Technique|Administratif,Azerty_2025!,Oui
-gallien.carole@laplateforme.io,gallien.carole@laplateforme.io,Cadres|Hébergement|Maîtresse de Maison,Azerty_2025!,Oui
-griveaux.patricia@laplateforme.io,griveaux.patricia@laplateforme.io,Cadres|Médecin|Médical,Azerty_2025!,Oui
-larguier.silvania@laplateforme.io,larguier.silvania@laplateforme.io,Cadres|Psychologue|Médical,Azerty_2025!,Oui
-malaure.ophylanadra@laplateforme.io,malaure.ophylanadra@laplateforme.io,Hébergement|ASH,Azerty_2025!,Oui
-pratabuy.myriam@laplateforme.io,pratabuy.myriam@laplateforme.io,Secrétaire|Administratif,Azerty_2025!,Oui
-sahtit.oifaa@laplateforme.io,sahtit.oifaa@laplateforme.io,IDE|Médical,Azerty_2025!,Oui
-salvador.gladys@laplateforme.io,salvador.gladys@laplateforme.io,IDE|Médical,Azerty_2025!,Oui
-schneider.emile@laplateforme.io,schneider.emile@laplateforme.io,Cadres|Technique,Azerty_2025!,Oui
-vignolo.veronique@laplateforme.io,vignolo.veronique@laplateforme.io,Cadres|Animation|Hébergement|Administratif,Azerty_2025!,Oui
-"@
 
-# Traitement des utilisateurs
-$Users = $UsersCSV | ConvertFrom-Csv
+# 3. Liste utilisateurs (format simplifié)
+$Users = @(
+    @{Sam="alexandre.marcelline"; Groups=@("Animation")}
+    @{Sam="aragon.isabelle"; Groups=@("Animation")}
+    @{Sam="avaro.marina"; Groups=@("As","Médical")}
+    @{Sam="bernard.isabelle"; Groups=@("As","Médical")}
+    @{Sam="bouffier.stephane"; Groups=@("ASH","Hébergement")}
+    @{Sam="bouziane.fatiha"; Groups=@("cadre de santé","Cadres","Médical")}
+    @{Sam="carlier.chantal"; Groups=@("Comptable","Administratif")}
+    @{Sam="thillot.marc"; Groups=@("Directeur","Cadres","Hébergement","Technique","Administratif","Animation")}
+    @{Sam="gallien.carole"; Groups=@("Maîtresse de Maison","Cadres","Hébergement")}
+    @{Sam="griveaux.patricia"; Groups=@("Médecin","Cadres","Médical")}
+    @{Sam="larguier.silvania"; Groups=@("Psychologue","Cadres","Médical")}
+    @{Sam="malaure.ophylanadra"; Groups=@("ASH","Hébergement")}
+    @{Sam="pratabuy.myriam"; Groups=@("Secrétaire","Administratif")}
+    @{Sam="sahtit.oifaa"; Groups=@("IDE","Médical")}
+    @{Sam="salvador.gladys"; Groups=@("IDE","Médical")}
+    @{Sam="schneider.emile"; Groups=@("Technique","Cadres")}
+    @{Sam="vignolo.veronique"; Groups=@("Animation","Cadres","Hébergement","Administratif")}
+)
+
+# 4. Création utilisateurs + groupes
 $Results = @()
-
 foreach ($User in $Users) {
-    $SamAccountName = ($User.Username -split '@')[0]
-    $UPN = $User.Username
-    $Groups = $User.Groups -split '\|' | Where-Object { $_ -ne "" }
+    $Sam = $User.Sam
+    $UPN = "$Sam@$Domain"
     
     try {
-        # Vérifier si utilisateur existe déjà
-        if (Get-ADUser -Filter {SamAccountName -eq $SamAccountName} -ErrorAction SilentlyContinue) {
-            $Result = [PSCustomObject]@{
-                Username = $SamAccountName
-                Status = "EXISTS"
-                Error = "Utilisateur déjà présent"
-            }
+        # Skip si existe
+        if (Get-ADUser -Filter "SamAccountName -eq '$Sam'" -ErrorAction SilentlyContinue) {
+            $Status = "EXISTS"
         } else {
-            # Créer l'utilisateur
-            $NewUserParams = @{
-                Name = $SamAccountName
-                SamAccountName = $SamAccountName
-                UserPrincipalName = $UPN
-                EmailAddress = $UPN
-                AccountPassword = $Password
-                Enabled = $true
-                ChangePasswordAtLogon = $true
-                Path = $OU
-            }
-            $NewUser = New-ADUser @NewUserParams
+            # Créer utilisateur
+            New-ADUser -Name $Sam -SamAccountName $Sam -UserPrincipalName $UPN -EmailAddress $UPN -AccountPassword $Password -Enabled $true -ChangePasswordAtLogon $true -Path $OUPath -ErrorAction Stop
             
-            # Ajouter aux groupes (créer si n'existent pas)
-            foreach ($GroupName in $Groups) {
-                if (!(Get-ADGroup -Filter {Name -eq $GroupName} -ErrorAction SilentlyContinue)) {
-                    New-ADGroup -Name $GroupName -GroupScope Global -GroupCategory Security -Path $OU
+            # Créer/ajouter groupes
+            foreach ($Group in $User.Groups) {
+                if (!(Get-ADGroup -Filter "Name -eq '$Group'" -ErrorAction SilentlyContinue)) {
+                    New-ADGroup -Name $Group -GroupScope Global -GroupCategory Security -Path $OUPath
                 }
-                Add-ADGroupMember -Identity $GroupName -Members $NewUser
+                Add-ADGroupMember -Identity $Group -Members $Sam -ErrorAction SilentlyContinue
             }
-            
-            $Result = [PSCustomObject]@{
-                Username = $SamAccountName
-                Status = "CREATED"
-                Groups = ($Groups -join ', ')
-                Error = ""
-            }
+            $Status = "CREATED"
         }
-        $Results += $Result
-        Write-Host "✓ $($Result.Status): $SamAccountName" -ForegroundColor Green
+        
+        $Results += [PSCustomObject]@{User=$Sam; Status=$Status; Groups=($User.Groups -join ",")}
+        Write-Host "✓ $Status`: $Sam" -ForegroundColor Green
     }
     catch {
-        $Results += [PSCustomObject]@{
-            Username = $SamAccountName
-            Status = "ERROR"
-            Groups = ($Groups -join ', ')
-            Error = $_.Exception.Message
-        }
-        Write-Host "✗ ERREUR: $SamAccountName - $($_.Exception.Message)" -ForegroundColor Red
+        $Results += [PSCustomObject]@{User=$Sam; Status="ERROR"; Groups=($User.Groups -join ","); Error=$_.Exception.Message}
+        Write-Host "✗ $Sam`: $($_.Exception.Message)" -ForegroundColor Red
     }
 }
 
-# Résumé
-Write-Host "`n=== RÉSUMÉ ===" -ForegroundColor Cyan
+# 5. Rapport
 $Results | Format-Table -AutoSize
-$Results | Export-Csv -Path "AD_Users_Creation_Report_$(Get-Date -Format 'yyyyMMdd_HHmmss').csv" -NoTypeInformation -Encoding UTF8
+$Results | Export-Csv "AD_Creation_Report_$(Get-Date -f 'yyyyMMdd-HHmmss').csv" -NoTypeInformation -Encoding UTF8
 
-Write-Host "`nRapport exporté. Tous les utilisateurs ont mot de passe 'Azerty_2025!' à changer au 1er login." -ForegroundColor Yellow
+Write-Host "`n🎉 TERMINÉ! Rapport exporté. Mot de passe: Azerty_2025! (changer au 1er login)" -ForegroundColor Cyan
+
 ```
