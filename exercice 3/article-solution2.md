@@ -268,4 +268,9 @@ docker-compose down --volumes
 
 
 
-# Sources: [DigitalOcean - How To Set Up a LEMP Stack with Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-lemp-stack-with-docker-on-ubuntu-20-04) , [Setting Up a High-Performance LEMP Stack with Nginx Using Docker Containers](https://medium.solvytech.com/setting-up-a-high-performance-lemp-stack-with-nginx-using-docker-containers-d8c2f4db174c)
+# Sources: 
+
+[DigitalOcean - How To Set Up a LEMP Stack with Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-lemp-stack-with-docker-on-ubuntu-20-04) , 
+
+
+[Setting Up a High-Performance LEMP Stack with Nginx Using Docker Containers](https://medium.solvytech.com/setting-up-a-high-performance-lemp-stack-with-nginx-using-docker-containers-d8c2f4db174c)
