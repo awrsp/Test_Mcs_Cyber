@@ -187,41 +187,6 @@ docker logs php_server
 docker logs mariadb
 ```
 
-## 6. Performance Optimization
-
-To ensure the LEMP stack is optimized for high traffic, consider the following:
-
-### A. Enable Gzip Compression in Nginx
-
-Update the nginx.conf file to include compression settings:
-
-```nginx
-gzip on;
-gzip_types text/plain application/json application/javascript text/css application/xml;
-gzip_min_length 256;
-```
-
-Restart the stack:
-
-```bash
-docker-compose restart
-```
-
-### B. Tune MySQL/MariaDB
-
-Optimize the MariaDB database by editing the my.cnf file. You can mount a custom configuration file for MariaDB if needed.
-
-### C. Scale Services
-
-If you expect high traffic:
-
-- Use Docker’s built-in scaling for the PHP-FPM service:
-
-```bash
-docker-compose up -d --scale php=3
-```
-
-- Implement load balancing in Nginx (e.g., round-robin or least connections) to distribute traffic across multiple PHP containers.
 
 ## Clean Up
 
