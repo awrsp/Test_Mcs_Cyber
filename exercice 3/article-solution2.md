@@ -11,6 +11,11 @@ Before we begin, ensure the following:
 - A basic understanding of Docker and containerized applications.
 - Your system is updated:
 
+
+[Docker and docker compose installation commands](https://docs.docker.com/engine/install/debian/) (if not already installed for debian based distros):
+
+
+
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
