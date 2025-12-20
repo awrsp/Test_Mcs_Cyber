@@ -23,7 +23,7 @@ Il sera unprivileged.
     ```
 2. Installez docker et docker-compose :
     ```bash
-    sudo apt install -y docker.io docker-compose
+    sudo apt install  docker.io docker-compose -y
     ```
 3. Créez un fichier `docker-compose.yml` pour configurer les services Nginx, MySQL et PHP-FPM :
     ```yaml
