@@ -1,7 +1,6 @@
 # Setting Up a High-Performance LEMP Stack with Nginx Using Docker Containers
 
-·
-Jan 25, 2025
+
 
 his guide demonstrates how to set up and deploy a fully functional LEMP stack (Linux, Nginx, MySQL/MariaDB, PHP) using Docker containers. Docker provides portability, making deployment faster with isolated environments.
 Prerequisites
