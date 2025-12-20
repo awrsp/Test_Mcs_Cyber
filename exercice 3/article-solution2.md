@@ -106,7 +106,7 @@ events {
 http {
     server {
         listen 80;
-        server_name localhost;
+        server_name 10.0.60.236;  # replace with your container/host IP (currently 10.0.60.236)
 
         root /var/www/html;
         index index.php index.html index.htm;
@@ -172,7 +172,7 @@ docker ps
 
 - Open your browser and go to:
 
-http://localhost
+http://10.0.60.236
 
 You should see the PHP information page displaying your PHP configuration.
 
