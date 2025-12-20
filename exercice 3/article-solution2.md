@@ -223,30 +223,6 @@ docker-compose up -d --scale php=3
 
 - Implement load balancing in Nginx (e.g., round-robin or least connections) to distribute traffic across multiple PHP containers.
 
-## 7. Add SSL with Certbot (Optional)
-
-To secure the stack with HTTPS:
-
-- Add the Certbot container to your `docker-compose.yml` for SSL certificates:
-
-```yaml
-certbot:
-  image: certbot/certbot
-  container_name: certbot
-  volumes:
-    - ./certbot/conf:/etc/letsencrypt
-    - ./certbot/logs:/var/log/letsencrypt
-    - ./certbot/www:/var/www/certbot
-  networks:
-    - lemp_network
-```
-
-- Use Certbot with the Nginx container to generate an SSL certificate:
-
-```bash
-docker-compose run certbot certonly --webroot --webroot-path=/var/www/html -d your_domain -d www.your_domain
-```
-
 ## Clean Up
 
 To stop and remove containers:
