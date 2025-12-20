@@ -1,8 +1,11 @@
-Ce tutoriel sera divisé en plusieurs sections pour vous guider à travers le processus de résolution de l'exercice 2.
+# Solution Exercice 3 : Hébergement WordPress sur Proxmox
 
-Premièrement, nous allons héberger notre projet sur mon Proxmox local. Nous allons utiliser un conteneur LXC pour cela, basé sur [Ubuntu 25.04 standard](https://releases.ubuntu.com/plucky/), nommé « Plucky ».
+Ce tutoriel est divisé en plusieurs sections pour vous guider à travers le processus de résolution de l'exercice.
 
-Suite au demmande de technos nous allons installer wordpress sur une stack [lemp](https://www.geeksforgeeks.org/websites-apps/what-is-lemp-stack/) (Linux, Nginx, MySQL, PHP).
+Nous allons héberger notre projet sur Proxmox local en utilisant un conteneur LXC basé sur [Ubuntu 25.04 standard](https://releases.ubuntu.com/plucky/) (Plucky).
+
+Nous allons installer WordPress sur une stack [LEMP](https://www.geeksforgeeks.org/websites-apps/what-is-lemp-stack/) (Linux, Nginx, MySQL, PHP).
+
 
 ## Étape 1 : Préparation du conteneur LXC
 1. Créez un nouveau conteneur LXC dans Proxmox en utilisant l'image Ubuntu 25.04.
