@@ -12,7 +12,7 @@ Before we begin, ensure the following:
 - Your system is updated:
 
 
-[Docker and docker compose installation commands](https://docs.docker.com/engine/install/debian/) (if not already installed for debian based distros):
+[Docker and docker compose installation commands](https://docs.docker.com/engine/install/debian/) (if not already installed for debian based distros)
 
 
 
