@@ -262,12 +262,6 @@ docker-compose down --volumes
 ```
 
 
-
-
-
-
-
-
 # Sources: 
 
 [DigitalOcean - How To Set Up a LEMP Stack with Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-lemp-stack-with-docker-on-ubuntu-20-04) , 
