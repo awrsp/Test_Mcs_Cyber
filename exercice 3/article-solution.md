@@ -182,7 +182,7 @@ docker-compose up -d
 Verify that the containers are running:
 
 ```bash
-docker ps
+docker-compose ps
 ```
 
 ## 5. Test the Setup
