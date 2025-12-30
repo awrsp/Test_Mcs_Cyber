@@ -44,10 +44,10 @@ unzip latest.zip -d public_html/ && rm latest.zip
 mkdir lemp-docker && cd lemp-docker
 ```
 
-- Create a `docker-compose.yml` file:
+- Create a `compose.yml` file:
 
 ```bash
-nano docker-compose.yml
+nano compose.yml
 ```
 
 - Add the following content:
