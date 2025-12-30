@@ -25,7 +25,23 @@ sudo apt update && sudo apt upgrade -y
 We’ll use Docker Compose to orchestrate the LEMP stack components: Nginx, PHP-FPM, and MariaDB.
 ### Steps:
 
+
+## get wordpress 
+
+```
+bash
+
+wget https://wordpress.org/latest.zip
+```
+
+## unzip wordpress
+
+```bash
+unzip latest.zip
+
 - Create the project directory:
+
+
 
 ```bash
 mkdir lemp-docker && cd lemp-docker
