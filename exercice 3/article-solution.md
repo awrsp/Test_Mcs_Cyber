@@ -61,39 +61,67 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./public_html:/var/www/html
-      - ./logs/nginx:/var/log/nginx
-    depends_on:
-      - php
-    networks:
-      - lemp_network
+      - type: volume
+        source: wordpress
+        target: /etc/nginx/
+        volume:
+          nocopy: true
+          subpath: nginx
+
+      - type: volume
+        source: wordpress
+        target: /var/www/html/
+        volume:
+          nocopy: true
+          subpath: www
+
+      - type: volume
+        source: wordpress
+        target: /var/log/nginx/
+        volume:
+          nocopy: true
+          subpath: logs
 
   php:
     image: php:8.1-fpm
     container_name: php_server
     volumes:
-      - ./public_html:/var/www/html
-    networks:
-      - lemp_network
+      - type: volume
+        source: wordpress
+        target: /etc/php/
+        volume:
+          nocopy: true
+          subpath: php
+
+      - type: volume
+        source: wordpress
+        target: /var/www/html/
+        volume:
+          nocopy: true
+          subpath: www
+
+
 
   db:
     image: mariadb:latest
     container_name: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: my_database
-      MYSQL_USER: user
-      MYSQL_PASSWORD: userpassword
+      MARIADB_ROOT_PASSWORD: rootpassword
+      MARIADB_DATABASE: my_database
+      MARIADB_USER: user
+      MARIADB_PASSWORD: userpassword
     volumes:
-      - ./data:/var/lib/mysql
-    networks:
-      - lemp_network
+      - type: volume
+        source: wordpress
+        target: /var/lib/mariadb/
+        volume:
+          nocopy: true
+          subpath: mariadb
 
-networks:
-  lemp_network:
-    driver: bridge
+
+volumes:
+  wordpress:
 ```
 
 ## 2. Set Up the Nginx Configuration
@@ -226,3 +254,6 @@ docker compose down --volumes
 
 
 [Setting Up a High-Performance LEMP Stack with Nginx Using Docker Containers](https://medium.solvytech.com/setting-up-a-high-performance-lemp-stack-with-nginx-using-docker-containers-d8c2f4db174c)
+
+
+
