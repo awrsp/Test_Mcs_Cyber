@@ -41,7 +41,7 @@ unzip latest.zip
 
 - Create the project directory:
 
-
+## create project directory
 
 ```bash
 mkdir lemp-docker && cd lemp-docker
