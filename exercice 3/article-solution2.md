@@ -28,8 +28,7 @@ We’ll use Docker Compose to orchestrate the LEMP stack components: Nginx, PHP-
 
 ## get wordpress 
 
-```
-bash
+```bash
 
 wget https://wordpress.org/latest.zip
 ```
