@@ -38,7 +38,7 @@ wget https://wordpress.org/latest.zip
 
 ```bash
 unzip latest.zip
-
+```
 - Create the project directory:
 
 ```bash
