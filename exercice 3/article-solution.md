@@ -176,13 +176,13 @@ Now that we have the docker-compose.yml, Nginx configuration, and PHP applicatio
 Inside your project directory, run:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Verify that the containers are running:
 
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
 ## 5. Test the Setup
