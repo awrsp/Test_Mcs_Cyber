@@ -36,7 +36,7 @@ wget https://wordpress.org/latest.zip
 ## unzip wordpress
 
 ```bash
-unzip latest.zip
+unzip latest.zip -d
 ```
 - Create the project directory:
 
