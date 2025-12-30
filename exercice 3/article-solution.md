@@ -199,8 +199,8 @@ If you encounter any issues, check the logs:
 - Docker container logs:
 
 ```bash
-docker logs nginx_server
-docker logs php_server
+docker compose logs nginx_server
+docker compose logs php_server
 docker logs mariadb
 ```
 
@@ -210,13 +210,13 @@ docker logs mariadb
 To stop and remove containers:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 To completely remove containers, networks, and volumes:
 
 ```bash
-docker-compose down --volumes
+docker compose down --volumes
 ```
 
 
