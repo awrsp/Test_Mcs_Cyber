@@ -40,7 +40,7 @@ nano docker-compose.yml
 - Add the following content:
 
 ```yaml
-version: "3.8"
+
 
 services:
   nginx:
