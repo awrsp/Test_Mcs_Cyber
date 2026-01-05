@@ -255,5 +255,6 @@ docker compose down --volumes
 
 [Setting Up a High-Performance LEMP Stack with Nginx Using Docker Containers](https://medium.solvytech.com/setting-up-a-high-performance-lemp-stack-with-nginx-using-docker-containers-d8c2f4db174c)
 
-
+P.S.: Unfortunately I was not able to test this in time and I know I still need to add custom permissions to the directories.
+This is a [WIP](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.F6dwLzzjZEt8xTGu-l2A2AHaHa%3Fpid%3DApi&f=1&ipt=01b89c3ea7d40e1e092ce5640dfabba94490ab88b014de2f72b6afcf5b27b222&ipo=images)
 
