@@ -286,6 +286,7 @@ show ip dhcp binding
 exit
 ```
 tout fonctionne correctement.
+Sauf la connection a internet.
 
 
 
